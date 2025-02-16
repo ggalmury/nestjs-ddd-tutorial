@@ -1,8 +1,10 @@
 import { NestFactory } from "@nestjs/core";
 import { VersioningType, ValidationPipe } from "@nestjs/common";
+import { SwaggerModule } from "@nestjs/swagger";
 import { initializeTransactionalContext, StorageDriver } from "typeorm-transactional";
 
 import AppModule from "@/app.module";
+import swaggerConfig from "@/shared/configs/swagger.config";
 
 async function bootstrap() {
   initializeTransactionalContext({ storageDriver: StorageDriver.AUTO });
@@ -13,6 +15,8 @@ async function bootstrap() {
   app.setGlobalPrefix("api");
   app.enableVersioning({ type: VersioningType.URI });
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
+
+  SwaggerModule.setup("api", app, () => SwaggerModule.createDocument(app, swaggerConfig));
 
   await app.listen(3000);
 }
