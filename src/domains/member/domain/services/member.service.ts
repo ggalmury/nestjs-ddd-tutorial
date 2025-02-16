@@ -1,4 +1,8 @@
-import { Injectable } from "@nestjs/common";
+import MemberEntity from "@/domains/member/domain/entities/member.entity";
+import CreateMemberEntity from "@/domains/member/domain/entities/create-member.entity";
 
-@Injectable()
-export default class MemberService {}
+export const MEMBER_SERVICE = Symbol("member service");
+
+export default interface MemberService {
+  createMember(entity: CreateMemberEntity): Promise<MemberEntity>;
+}

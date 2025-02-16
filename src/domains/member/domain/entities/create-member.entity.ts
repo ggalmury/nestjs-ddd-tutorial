@@ -1,43 +1,26 @@
-import SignatureEntity from "@/shared/entities/signature.entity";
-
 import NameVo from "@/domains/member/domain/vos/name.vo";
 import TelVo from "@/domains/member/domain/vos/tel.vo";
 import IntroductionVo from "@/domains/member/domain/vos/introduction.vo";
 
-interface MemberProps {
-  id: number;
-  ulid: string;
+interface CreateMemberMemberProps {
   name: NameVo;
   tel: TelVo;
   introduction: IntroductionVo;
-  createdAt: Date;
-  updatedAt: Date | null;
-  deletedAt: Date | null;
 }
 
-export default class MemberEntity extends SignatureEntity {
+export default class CreateMemberEntity {
   private name: NameVo;
   private tel: TelVo;
   private introduction: IntroductionVo;
 
-  private constructor(
-    id: number,
-    ulid: string,
-    name: NameVo,
-    tel: TelVo,
-    introduction: IntroductionVo,
-    createdAt: Date,
-    updatedAt: Date | null,
-    deletedAt: Date | null,
-  ) {
-    super(id, ulid, createdAt, updatedAt, deletedAt);
+  private constructor(name: NameVo, tel: TelVo, introduction: IntroductionVo) {
     this.name = name;
     this.tel = tel;
     this.introduction = introduction;
   }
 
-  static create({ id, ulid, name, tel, introduction, createdAt, updatedAt, deletedAt }: MemberProps): MemberEntity {
-    return new MemberEntity(id, ulid, name, tel, introduction, createdAt, updatedAt, deletedAt);
+  static create({ name, tel, introduction }: CreateMemberMemberProps): CreateMemberEntity {
+    return new CreateMemberEntity(name, tel, introduction);
   }
 
   getNameVo(): NameVo {
