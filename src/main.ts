@@ -16,7 +16,7 @@ async function bootstrap() {
   app.enableVersioning({ type: VersioningType.URI });
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
 
-  SwaggerModule.setup("api", app, () => SwaggerModule.createDocument(app, swaggerConfig));
+  SwaggerModule.setup("api-docs", app, () => SwaggerModule.createDocument(app, swaggerConfig));
 
   await app.listen(3000);
 }

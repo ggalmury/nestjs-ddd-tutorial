@@ -10,7 +10,7 @@ export default abstract class SignatureOrmEntity extends BaseOrmEntity {
   ulid: string;
 
   @BeforeInsert()
-  generateId() {
+  generateUlid() {
     if (this.ulid) {
       throw new UlidAlreadyExistsException();
     }

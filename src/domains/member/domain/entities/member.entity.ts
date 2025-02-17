@@ -16,7 +16,7 @@ interface MemberProps {
 }
 
 export default class MemberEntity extends SignatureEntity {
-  private name: NameVo;
+  private name?: NameVo;
   private tel: TelVo;
   private introduction: IntroductionVo;
 
