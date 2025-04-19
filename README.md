@@ -1,73 +1,60 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+🧱 NestJS DDD Tutorial - Domain Driven Design Practice
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+본 프로젝트는 NestJS를 기반으로 **도메인 주도 설계(DDD)**를 연습하고 실제 코드로 구현한 예제입니다. 계층화된 아키텍처와 DDD 개념을 바탕으로, 도메인 중심의 모듈화와 책임 분리를 학습하는 목적으로 작성되었습니다.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+⸻
 
-## Description
+🧠 핵심 아이디어
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+“애플리케이션의 복잡도를 낮추기 위해 도메인 모델 중심의 설계와 계층 간 책임 분리를 실현한다.”
 
-## Installation
+	•	Entity, Value Object, Aggregate Root, Domain Service 구조 학습
+	•	Command / Query 패턴 기반 유스케이스 설계
+	•	Repository, Infrastructure Layer 분리
+	•	각 모듈은 독립적으로 확장 가능하도록 설계
 
-```bash
-$ npm install
-```
+⸻
 
-## Running the app
+🛠 사용 기술 스택
 
-```bash
-# development
-$ npm run start
+영역	기술
+서버 프레임워크	NestJS (v11)
+언어	TypeScript
+데이터베이스	TypeORM + MySQL
+설계 패턴	DDD, CQRS
+테스트	Jest
 
-# watch mode
-$ npm run start:dev
+⸻
 
-# production mode
-$ npm run start:prod
-```
+🔍 주요 특징
 
-## Test
+📌 도메인 중심 아키텍처 구성
+	•	계층 구분: Application, Domain, Infrastructure, Presentation
+	•	유스케이스 단위의 Command / Query 클래스 구성
+	•	Repository 인터페이스를 Domain 계층에 선언 → 구현은 Infrastructure 계층에 분리
 
-```bash
-# unit tests
-$ npm run test
+📌 Value Object / Entity 예제 포함
+	•	Email, UserId, Nickname 등 VO 객체 정의
+	•	Aggregate Root를 중심으로 도메인 로직 캡슐화
 
-# e2e tests
-$ npm run test:e2e
+📌 테스트 친화적 구조
+	•	각 계층이 의존성 주입 기반으로 구성되어 유닛 테스트 용이
+	•	비즈니스 로직은 Application/Domain 계층에 집중
 
-# test coverage
-$ npm run test:cov
-```
 
-## Support
+⸻
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+📜 주의사항
+	•	본 레포는 학습 목적으로 설계되었으며, 실제 서비스 환경에선 추가적인 고려사항(CQRS 분리, 이벤트 버스, 모듈 단위 분리 등)이 필요합니다.
+	•	TypeORM 기반이므로 Repository 패턴은 추상화된 형태로 작성되어 있습니다.
 
-## Stay in touch
+⸻
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+🙌 기여자
+	•	🧑‍💻 ggalmury (GitHub)
 
-## License
+⸻
 
-Nest is [MIT licensed](LICENSE).
+📎 레포 링크
+
+👉 https://github.com/ggalmury/nestjs-ddd-tutorial
